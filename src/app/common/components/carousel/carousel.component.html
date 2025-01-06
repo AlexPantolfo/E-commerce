@@ -1,0 +1,38 @@
+<div class="carousel-container">
+
+    <!-- Botão de voltar (exibe se showArrows=true e houver itens) -->
+    <button
+      class="carousel-button left"
+      *ngIf="showArrows && itemsToRender.length > 0"
+      (click)="prev()"
+    >
+      ‹
+    </button>
+  
+    <!-- Área visível (viewport) -->
+    <div class="carousel-viewport" [ngStyle]="{'--items-per-view': itemsPerView}">
+      <!-- Faixa que desliza (track) -->
+      <div class="carousel-track" #carouselTrack>
+        <!-- Renderiza cada item (replicados se necessário) -->
+        <div class="carousel-item" *ngFor="let item of itemsToRender">
+          <img
+            *ngIf="item?.image"
+            [src]="item.image"
+            [alt]="item.title || 'Carrossel item'"
+          />
+          <div class="item-text">{{ item?.title }}</div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Botão de avançar (exibe se showArrows=true e houver itens) -->
+    <button
+      class="carousel-button right"
+      *ngIf="showArrows && itemsToRender.length > 0"
+      (click)="next()"
+    >
+      ›
+    </button>
+  
+  </div>
+  

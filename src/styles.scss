@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+ @use '@angular/material' as mat;
+
+ @font-face {
+  font-family: Poppins;
+  src: url("./assets/fonts/Poppins-Regular.ttf");
+}
+
+ body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Poppins;
+}
+
+:root {
+  @include mat.badge-overrides((
+    background-color: rgb(219, 18, 21),
+    text-color: #ffffff,         
+    container-padding: 0 3px,
+    container-shape: 50%,
+    text-size: 10px,
+    text-weight: 500,
+    line-height: 18px
+  ));
+}

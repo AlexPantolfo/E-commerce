@@ -1,0 +1,33 @@
+<nav>
+  <img src="assets/images/Ecomus.svg" alt="Logo" class="logo" />
+  <ul class="categories">
+
+    @for (category of categories; track category) {
+      <li>
+        <span
+          (mouseenter)="toggleSubmenu(category, true)"
+          (mouseleave)="toggleSubmenu(category, false)"
+        >
+          {{ category.name }}
+        </span>
+        <ul
+          class="submenu"
+          [class.visible]="category.showSubmenu"
+          (mouseenter)="toggleSubmenu(category, true)"
+          (mouseleave)="toggleSubmenu(category, false)"
+        >
+          @for (subcategory of category.subcategories; track subcategory) {
+            <li>{{ subcategory }}</li>
+          }
+        </ul>
+      </li>
+    }
+  </ul>
+
+  <div class="icon-container">
+    <mat-icon svgIcon="lupa"></mat-icon>
+    <mat-icon svgIcon="person"></mat-icon>
+    <mat-icon matBadge="0" matBadgeColor="primary" svgIcon="favorite"></mat-icon>
+    <mat-icon matBadge="0" matBadgeColor="warn" svgIcon="shopping_bag"></mat-icon>
+  </div>
+</nav>

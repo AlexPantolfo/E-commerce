@@ -1,0 +1,22 @@
+<div [ngClass]="styleChange()">
+  <div class="snack-container-message">
+    <div class="col-12 corpo" [ngStyle]="{'background-color': data.snackType === 'error' ? '#F9EEEE' :
+            data.snackType === 'success' ? '#F2F9EE' :
+            data.snackType === 'warning' ? '#FFF4E5' : ''}">
+      <span *ngIf="data.snackType == 'success'">
+        <div class="imagem"></div>
+      </span>
+      <span *ngIf="data.snackType == 'error'">
+        <div class="imagem-error"></div>
+      </span>
+      <span *ngIf="data.snackType == 'warning'">
+        <div class="imagem-warning"></div>
+      </span>
+      <span class="msgText">
+        <h1 [ngStyle]="{'color': data.snackType === 'error' ? '#6D1010' :
+        data.snackType === 'success' ? '#336D10' :
+        data.snackType === 'warning' ? '#c9bd19' : ''}">{{data.message}}</h1>
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+  .fullscreen-container {
+    width: 100vw; 
+    height: 100vh;
+    display: contents;
+  }
+
+  .aviso {
+    height: 90px;
+    background-color: #fcffb2;
+    margin-top: -10px;
+    overflow: hidden;
+  
+    .aviso-content {
+      height: 100%;
+      position: relative;
+    }
+  
+    .marquee-container {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      animation: marquee 10s linear infinite;
+    }
+  
+    .marquee-item {
+      min-width: 50%;
+      white-space: nowrap;
+      --index: 0;
+
+      p {
+        font-size: 1.4rem;
+        font-weight: 400; 
+      }
+    }
+  
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  }
+  
+  .categorias {
+    h1 {
+      text-align: center;
+      font-weight: 100;
+      font-size: xx-large;
+    }
+  }

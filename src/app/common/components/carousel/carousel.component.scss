@@ -1,0 +1,86 @@
+/* Contêiner geral do carrossel */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;  /* Se quiser limitar no desktop */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Botões de navegação (‹ e ›) */
+  .carousel-button {
+    background-color: #ccc;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: #333;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+  
+    &.left {
+      margin-right: 1rem;
+    }
+    &.right {
+      margin-left: 1rem;
+    }
+  }
+  
+  /* Área visível (viewport) - esconde o resto da faixa */
+  .carousel-viewport {
+    flex: 1 1 auto;
+    overflow: hidden;
+    position: relative;
+    touch-action: pan-y; /* Permite swipe horizontal sem conflito no mobile */
+  }
+  
+  /* A faixa (track) que será deslocada via transform */
+  .carousel-track {
+    display: flex;
+    transition: transform 0.3s ease; /* Arraste em “tempo real”, mas ao soltar, há animação suave */
+    /* Desabilitar "select text" ao arrastar:
+       user-select: none;
+       -webkit-user-drag: none;
+       etc. Se quiser forçar ainda mais, aplique no item. */
+  }
+  
+  /* Cada item do carrossel */
+  .carousel-item {
+    flex: 0 0 calc(100% / var(--items-per-view, 4));
+    box-sizing: border-box;
+    padding: 1rem;
+    text-align: center;
+    user-select: none; /* Evita seleção de texto no arraste */
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .item-text {
+    margin-top: 0.5rem;
+    font-weight: 600;
+  }
+  
+  /* Responsivo (exemplo):
+     Se quiser trocar itemsPerView via media queries,
+     sobrepõe a var ou muda o flex dinamicamente.
+  */
+  @media (max-width: 768px) {
+    .carousel-item {
+      flex: 0 0 calc(100% / 2); /* 2 itens por vez no tablet */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carousel-item {
+      flex: 0 0 calc(100% / 1); /* 1 item por vez no mobile */
+    }
+  }
+  

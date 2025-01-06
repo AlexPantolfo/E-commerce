@@ -1,0 +1,35 @@
+<div class="fullscreen-container">
+    <picture>
+      <img src="assets/images/001fashion-slideshow-01.webp" alt="Logo" class="logo">
+    </picture>
+</div>
+<div class="aviso">
+  <div class="aviso-content">
+    <div class="marquee-container">
+      <div
+        class="marquee-item"
+        *ngFor="let texto of listaTextos; let i = index"
+        [attr.aria-hidden]="true"
+        [attr.style]="'--index: ' + (i + 1)"
+      >
+        <p>{{ texto }}</p>
+      </div>
+
+      <div
+        class="marquee-item"
+        *ngFor="let texto of listaTextos; let i = index"
+        [attr.aria-hidden]="true"
+        [attr.style]="'--index: ' + (i + 1 + listaTextos.length)"
+      >
+        <p>{{ texto }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<section class="categorias">
+    <h1>Categorias que você vai gostar</h1>
+
+    <app-carousel [items]="carouselItems" [itemsPerView]="4" [loop]="false"></app-carousel>
+</section>
